@@ -2,32 +2,33 @@
 
 ## 1. Identitas & Karakter Produk
 - **Produk**: Aplikasi web interaktif berbasis Machine Learning untuk memproyeksikan apakah sebuah produksi film akan balik modal (*Box Office Hit*, `revenue > budget`) atau merugi (*Box Office Flop*) berdasarkan arsip **TMDB 5000 Movie Dataset**.
-- **Mood & Referensi Visual**: Ruang pemutaran teater sinema (*screening room*) yang dipadukan dengan jurnal editorial analisis *Box Office* klasik dan potongan tiket bioskop (*ticket stub*).
+- **Mood & Referensi Visual**: Ruang pemutaran teater sinema (*Obsidian* & *Charcoal*) dengan tiket fisik berwarna krem (*Warm Film Ivory*) ber-stub *Crimson*, serta tipografi tajuk *Playfair Display* `88px` dan *DM Sans* untuk tabel data.
 - **Design Read**:
   > Reading this as: Interactive ML Box Office analytical tool for film students and cinema analysts, in an editorial screening-room visual language, dial ENERGY 2 / RHYTHM 2 / MOTION 1.
 - **Dial Liveliness**: `Dial: ENERGY 2 / RHYTHM 2 / MOTION 1`
 
-## 2. Sistem Palet Warna (R-29: 2 Core + 1 Accent)
-- **Core 1 - Latar & Permukaan (Neutral Base)**:
-  - *Theater Obsidian* (`#0D0F12`): Latar utama halaman yang meniru suasana ruang bioskop redup agar fokus mata tertuju pada layar data.
-  - *Screen Charcoal* (`#161920`): Permukaan panel simulasi, tabel, dan kanvas grafik.
-  - *Frame Slate* (`#262B36`): Garis pembatas struktural dan perforasi tiket.
-- **Core 2 - Tipografi & Konten (WCAG AA Verified)**:
-  - *Warm Film Ivory* (`#F4F1EA`): Teks utama dan judul (rasio kontras `16.4:1` di atas `#0D0F12` dan `14.2:1` di atas `#161920`).
-  - *Projector Silver* (`#B8B2A6`): Teks sekunder, label sumbu, dan keterangan (rasio kontras `9.2:1` di atas `#0D0F12` dan `8.0:1` di atas `#161920`).
-- **Deliberate Accent (1 Warna Aksen Utama)**:
-  - *Marquee Amber Gold* (`#E5A93C`): Digunakan secara terfokus pada tombol aksi utama (*Hitung Proyeksi Box Office*), garis aksen tajuk *playbill*, dan penanda nilai tertinggi (teks gelap `#0D0F12` di atas tombol `#E5A93C` memiliki rasio kontras `9.5:1`).
-  - Penanda Semantik Data: *Emerald Reel* (`#4CAF7D`) untuk status untung/sukses dan *Crimson Curtain* (`#D9534F`) untuk status rugi/tidak sukses.
+## 2. Sistem Palet Enam Warna (R-29)
+1. **Obsidian (`#0D0F12`)**: Latar utama halaman.
+2. **Charcoal (`#161920`)**: Latar bagian tabel selebar halaman dan kanvas grafik.
+3. **Ivory (`#F4F1EA`)**: Teks utama di atas latar gelap serta warna dasar kartu tiket prediksi.
+4. **Silver (`#A39E93`)**: Teks pendukung, keterangan sumbu, dan label sekunder.
+5. **Amber (`#E5A93C`)**: Tombol aksi utama dan sorotan nilai metrik terbaik pada tabel evaluasi.
+6. **Crimson (`#C83E3B`)**: Penanda penting khusus untuk stub tiket prediksi, label `"PEMBANDING"`, dan garis bawah tautan.
 
 ## 3. Tipografi (R-06)
-- **Judul & Tajuk Editorial**: `'Playfair Display', Georgia, serif`. Dipilih untuk menghadirkan karakter katalog festival film dan tajuk jurnal sinema.
-- **Teks Antarmuka & Kontrol**: `'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif`. Dipilih demi keterbacaan tinggi pada kontrol *slider*, tabel perbandingan model, dan angka statistik.
-- **Angka & Metrik**: Menggunakan `font-variant-numeric: tabular-nums` agar nilai dolar anggaran, persentase akurasi, dan skor F1 sejajar rapi.
+- **Judul Utama (`Playfair Display`)**: `'Playfair Display', Georgia, serif` berukuran `88px` pada tajuk utama untuk menghadirkan bobot poster dan tajuk utama jurnal sinema.
+- **Tabel & Data (`DM Sans`)**: `'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif` dengan `font-variant-numeric: tabular-nums` untuk keterbacaan tabel selebar halaman, angka anggaran, dan metrik evaluasi.
 
-## 4. Alasan Satu Baris untuk Setiap Keputusan Utama (R-31)
-- **Mengapa palet warna ini**: Warna dasar gelap (`#0D0F12`) dan gading hangat (`#F4F1EA`) mereplikasi kenyamanan ruang teater sinema sekaligus menjaga kontras baca di atas standar WCAG AA (`> 8:1`), sementara emas *marquee* (`#E5A93C`) mengarahkan fokus ke aksi proyeksi utama.
-- **Mengapa tipografi ini**: Kombinasi serif editorial (`Playfair Display`) pada tajuk dan sans-serif bersih (`Plus Jakarta Sans`) pada komponen data membedakan narasi sinema dari angka evaluasi teknis.
-- **Mengapa tata letak ini**: Menempatkan **Studio Proyeksi Box Office** langsung di bagian utama (di atas tab evaluasi dan arsip) memprioritaskan keputusan utama pengguna, yaitu menguji skenario film, sebelum menelusuri tabel pembuktian model.
-- **Mengapa variasi ritme dan spasi ini (`RHYTHM 2`)**: Pembagian kolom asimetris (`1.15 : 0.85` pada simulator dan `1.2 : 0.8` pada evaluasi model) mencegah kebosanan grid seragam dan memberi ruang lebih besar pada elemen berdensitas data tinggi.
-- **Mengapa motif potongan tiket (*ticket stub*)**: Garis ganda di bagian tajuk dan garis putus-putus (*perforated rule*) pada panel hasil prediksi memberikan identitas khas bioskop tanpa perlu dekorasi berlebihan atau gambar generik.
-- **Mengapa tanpa emoji dekoratif (`R-04`)**: Menghapus emoji dari judul, tab, dan pesan hasil menghilangkan kesan template buatan AI serta menjaga fokus pada ketegasan tipografi dan bukti data.
+## 4. Komposisi & Gerakan (`Energy 2 / Rhythm 2 / Motion 1`)
+- **Tanpa animasi saat halaman dimuat (`MOTION 1`)**: Gerakan dibatasi hanya pada transisi *hover* pendek (`0.15s ease`) untuk tombol, tautan bernavigasi garis bawah Crimson, dan baris tabel.
+- **Pergantian komposisi per bagian (`RHYTHM 2`)**:
+  1. **Bagian Utama**: Dua kolom asimetris (kiri: parameter produksi film dan tombol Amber; kanan: kartu tiket krem `#F4F1EA` dengan stub Crimson `#C83E3B` dan label `"PEMBANDING"`).
+  2. **Bagian Tabel Selebar Halaman**: Tabel perbandingan model dan tabel eksplorasi arsip TMDB 5000 ditempatkan selebar halaman (*full-width*) di atas latar Charcoal (`#161920`) tanpa geser kiri-kanan (*no horizontal scroll*).
+  3. **Bagian Spesifikasi Desain**: Grid palet enam kolom sesuai kode hex beserta spesimen huruf `Playfair Display` dan `DM Sans`.
+
+## 5. Alasan Satu Baris untuk Setiap Keputusan Utama (R-31)
+- **Mengapa palet enam warna ini**: Obsidian (`#0D0F12`) dan Charcoal (`#161920`) menciptakan kontras ruang teater, Ivory (`#F4F1EA`) dan Crimson (`#C83E3B`) membedakan fisik kartu tiket dan penanda pembanding, sementara Amber (`#E5A93C`) mengunci fokus pada tombol utama dan nilai metrik tertinggi.
+- **Mengapa pasangan huruf ini**: `Playfair Display` berukuran `88px` memberi karakter tajuk sinema yang tegas di bagian pembuka, sedangkan `DM Sans` menjaga ketajaman angka dan teks pada tabel berdensitas tinggi.
+- **Mengapa tabel dibuat selebar halaman di atas latar Charcoal**: Menempatkan tabel secara *full-width* dengan pembungkusan teks otomatis menghilangkan *horizontal scrollbar* (geser kiri-kanan) sehingga seluruh kolom langsung terbaca utuh.
+- **Mengapa hasil prediksi berbentuk tiket krem dengan stub Crimson**: Kontras permukaan krem (`#F4F1EA`) di atas halaman gelap (`#0D0F12`) dengan potongan stub merah (`#C83E3B`) menjadikan hasil proyeksi titik fokus instan yang menyerupai tiket bioskop fisik.
+- **Mengapa tanpa emoji dekoratif (`R-04`)**: Menghapus emoji menjaga wibawa editorial jurnal film dan menyerahkan hierarki sepenuhnya pada tipografi, warna aksen, dan struktur tata letak.
