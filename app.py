@@ -28,26 +28,27 @@ st.set_page_config(
     layout="wide",
 )
 
-# Gaya visual: Enam warna sesuai hex, Playfair Display (88px) & DM Sans, Energy 2 / Rhythm 2 / Motion 1
+# Gaya visual: Opsi A Noir & Emerald (Bioskop Klasik / Retro Prestisius), Playfair Display (88px) & DM Sans
 st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
 
     :root {
-        --c-obsidian: #0D0F12;
-        --c-charcoal: #161920;
-        --c-ivory: #F4F1EA;
-        --c-silver: #A39E93;
-        --c-amber: #E5A93C;
-        --c-crimson: #C83E3B;
-        --border-subtle: #242936;
+        --c-pine: #0B0E0D;
+        --c-forest: #141A17;
+        --c-paper: #F2EFE9;
+        --c-sage: #8F9E96;
+        --c-gold: #D4AF37;
+        --c-emerald: #10B981;
+        --c-rust: #C2410C;
+        --border-forest: #222C27;
     }
 
     html, body, [class*="css"] {
         font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-        color: var(--c-ivory);
-        background-color: var(--c-obsidian);
+        color: var(--c-paper);
+        background-color: var(--c-pine);
         overflow-x: hidden;
     }
 
@@ -59,14 +60,14 @@ st.markdown(
 
     h1, h2, h3, .font-playfair {
         font-family: 'Playfair Display', Georgia, serif !important;
-        color: var(--c-ivory) !important;
+        color: var(--c-paper) !important;
         letter-spacing: -0.015em;
     }
 
     /* Tajuk Utama: Playfair Display 88px di layar utama, tanpa animasi muat halaman (Motion 1) */
     .hero-header {
-        border-top: 2px solid var(--c-amber);
-        border-bottom: 1px solid var(--border-subtle);
+        border-top: 2px solid var(--c-gold);
+        border-bottom: 1px solid var(--border-forest);
         padding: 1.5rem 0 1.35rem 0;
         margin-bottom: 1.5rem;
     }
@@ -77,52 +78,52 @@ st.markdown(
         font-weight: 700 !important;
         line-height: 1.02 !important;
         letter-spacing: -0.02em !important;
-        color: var(--c-ivory) !important;
+        color: var(--c-paper) !important;
         margin: 0 0 0.85rem 0 !important;
     }
 
     .hero-lead {
         font-family: 'DM Sans', sans-serif;
-        font-size: 1.05rem;
-        color: var(--c-silver);
+        font-size: 1.04rem;
+        color: var(--c-sage);
         max-width: 780px;
         line-height: 1.55;
-        margin: 0 0 1.1rem 0;
+        margin: 0 0 1.15rem 0;
     }
 
-    /* Navigasi tautan bagian dengan garis bawah Crimson (#C83E3B) dan transisi hover pendek (Motion 1) */
+    /* Navigasi tautan bagian dengan garis bawah Rust Orange (#C2410C) dan transisi hover pendek (Motion 1) */
     .section-nav {
         display: flex;
         flex-wrap: wrap;
-        gap: 1.5rem;
-        padding-top: 0.4rem;
+        gap: 1.65rem;
+        padding-top: 0.35rem;
     }
 
     .section-link {
         font-family: 'DM Sans', sans-serif;
         font-size: 0.9rem;
         font-weight: 600;
-        color: var(--c-ivory) !important;
+        color: var(--c-paper) !important;
         text-decoration: none !important;
-        border-bottom: 2px solid var(--c-crimson);
+        border-bottom: 2px solid var(--c-rust);
         padding-bottom: 0.2rem;
         transition: color 0.15s ease, border-color 0.15s ease;
     }
 
     .section-link:hover {
-        color: var(--c-amber) !important;
-        border-bottom-color: var(--c-amber);
+        color: var(--c-gold) !important;
+        border-bottom-color: var(--c-gold);
     }
 
-    /* Baris ringkasan arsip dengan DM Sans tabular-nums */
+    /* Pita ringkasan arsip di atas permukaan Dark Forest (#141A17) */
     .archive-strip {
         display: flex;
         flex-wrap: wrap;
         gap: 1.25rem 2.25rem;
-        background-color: var(--c-charcoal);
-        border: 1px solid var(--border-subtle);
+        background-color: var(--c-forest);
+        border: 1px solid var(--border-forest);
         border-radius: 6px;
-        padding: 1rem 1.4rem;
+        padding: 1.05rem 1.45rem;
         margin-bottom: 2.25rem;
         font-variant-numeric: tabular-nums;
     }
@@ -134,7 +135,7 @@ st.markdown(
 
     .strip-label {
         font-size: 0.79rem;
-        color: var(--c-silver);
+        color: var(--c-sage);
         margin-bottom: 0.2rem;
         font-weight: 500;
     }
@@ -142,24 +143,28 @@ st.markdown(
     .strip-val {
         font-size: 1.3rem;
         font-weight: 700;
-        color: var(--c-ivory);
+        color: var(--c-paper);
     }
 
-    .strip-val.amber {
-        color: var(--c-amber);
+    .strip-val.gold {
+        color: var(--c-gold);
+    }
+
+    .strip-val.emerald {
+        color: var(--c-emerald);
     }
 
     .strip-sub {
         font-size: 0.78rem;
-        color: var(--c-silver);
+        color: var(--c-sage);
         margin-top: 0.12rem;
     }
 
-    /* Label penanda "PEMBANDING" khusus berwarna Crimson (#C83E3B) */
+    /* Label penanda "PEMBANDING" khusus berwarna Rust Orange (#C2410C) */
     .badge-pembanding {
         display: inline-block;
-        background-color: var(--c-crimson);
-        color: var(--c-ivory);
+        background-color: var(--c-rust);
+        color: var(--c-paper);
         font-family: 'DM Sans', sans-serif;
         font-size: 0.72rem;
         font-weight: 700;
@@ -170,15 +175,15 @@ st.markdown(
         text-transform: uppercase;
     }
 
-    /* Kartu Tiket Krem (#F4F1EA) dengan Stub Crimson (#C83E3B) */
+    /* Kartu Tiket Warm Paper (#F2EFE9) dengan Stub Rust Orange (#C2410C) */
     .cinema-ticket {
         display: flex;
         flex-direction: row;
-        background-color: var(--c-ivory);
-        color: var(--c-obsidian);
+        background-color: var(--c-paper);
+        color: var(--c-pine);
         border-radius: 6px;
         overflow: hidden;
-        border: 1px solid #D8D2C5;
+        border: 1px solid #D5CFC4;
         font-variant-numeric: tabular-nums;
         margin-bottom: 0.85rem;
     }
@@ -186,15 +191,15 @@ st.markdown(
     .ticket-body {
         flex: 1 1 auto;
         padding: 1.35rem 1.45rem;
-        background-color: var(--c-ivory);
-        color: var(--c-obsidian);
+        background-color: var(--c-paper);
+        color: var(--c-pine);
     }
 
     .ticket-stub {
-        flex: 0 0 155px;
-        background-color: var(--c-crimson);
-        color: var(--c-ivory);
-        border-left: 2px dashed var(--c-obsidian);
+        flex: 0 0 160px;
+        background-color: var(--c-rust);
+        color: var(--c-paper);
+        border-left: 2px dashed var(--c-pine);
         padding: 1.35rem 1rem;
         display: flex;
         flex-direction: column;
@@ -204,11 +209,11 @@ st.markdown(
     }
 
     .ticket-kicker {
-        font-size: 0.76rem;
+        font-size: 0.75rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.04em;
-        color: #4A463F;
+        color: #424A45;
         margin-bottom: 0.25rem;
     }
 
@@ -217,26 +222,26 @@ st.markdown(
         font-size: 1.55rem;
         font-weight: 700;
         line-height: 1.15;
-        color: var(--c-obsidian) !important;
+        color: var(--c-pine) !important;
         margin: 0 0 0.55rem 0;
     }
 
     .ticket-specs {
         font-size: 0.88rem;
-        color: #2B2925;
+        color: #232926;
         line-height: 1.5;
         margin-bottom: 0.85rem;
     }
 
     .ticket-divider {
-        border-top: 1px dashed #B8B2A6;
+        border-top: 1px dashed #A5ACA8;
         margin: 0.8rem 0;
         padding-top: 0.75rem;
     }
 
     .ticket-compare-text {
         font-size: 0.84rem;
-        color: #2B2925;
+        color: #232926;
         line-height: 1.45;
         margin-top: 0.35rem;
     }
@@ -245,9 +250,9 @@ st.markdown(
         display: flex;
         justify-content: space-between;
         font-size: 0.84rem;
-        padding: 0.24rem 0;
-        border-bottom: 1px solid #E2DDD2;
-        color: var(--c-obsidian);
+        padding: 0.25rem 0;
+        border-bottom: 1px solid #DFDBD2;
+        color: var(--c-pine);
     }
 
     .ticket-consensus-row:last-child {
@@ -259,8 +264,7 @@ st.markdown(
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        color: var(--c-ivory);
-        opacity: 0.92;
+        color: var(--c-paper);
     }
 
     .stub-prob {
@@ -268,28 +272,32 @@ st.markdown(
         font-size: 2.2rem;
         font-weight: 700;
         line-height: 1.05;
-        color: var(--c-ivory);
+        color: var(--c-paper);
         margin: 0.4rem 0;
     }
 
     .stub-verdict-tag {
-        background-color: var(--c-obsidian);
-        color: var(--c-amber);
-        font-size: 0.74rem;
+        background-color: var(--c-pine);
+        color: var(--c-gold);
+        font-size: 0.73rem;
         font-weight: 700;
-        padding: 0.25rem 0.55rem;
+        padding: 0.26rem 0.6rem;
         border-radius: 3px;
         text-transform: uppercase;
         letter-spacing: 0.04em;
     }
 
-    /* Panel Tabel Selebar Halaman di atas Latar Charcoal (#161920) tanpa geser kiri-kanan */
-    .charcoal-table-section {
-        background-color: var(--c-charcoal);
-        border: 1px solid var(--border-subtle);
+    .stub-verdict-tag.hit {
+        color: var(--c-emerald);
+    }
+
+    /* Panel Tabel Selebar Halaman di atas Latar Dark Forest (#141A17) tanpa geser kiri-kanan */
+    .forest-table-section {
+        background-color: var(--c-forest);
+        border: 1px solid var(--border-forest);
         border-radius: 6px;
         padding: 1.35rem 1.5rem;
-        margin-bottom: 1.75rem;
+        margin-bottom: 1.65rem;
         width: 100%;
         box-sizing: border-box;
     }
@@ -301,23 +309,23 @@ st.markdown(
         font-family: 'DM Sans', sans-serif;
         font-size: 0.88rem;
         font-variant-numeric: tabular-nums;
-        color: var(--c-ivory);
+        color: var(--c-paper);
     }
 
     .cinema-table th {
         text-align: left;
-        color: var(--c-silver);
+        color: var(--c-sage);
         font-weight: 600;
         font-size: 0.8rem;
         padding: 0.65rem 0.6rem;
-        border-bottom: 2px solid var(--border-subtle);
+        border-bottom: 2px solid var(--border-forest);
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
 
     .cinema-table td {
         padding: 0.62rem 0.6rem;
-        border-bottom: 1px solid #1E232E;
+        border-bottom: 1px solid #1C2520;
         vertical-align: top;
         word-wrap: break-word;
         overflow-wrap: break-word;
@@ -330,104 +338,50 @@ st.markdown(
     }
 
     .cinema-table tbody tr:hover {
-        background-color: #1E232E;
+        background-color: #1C2621;
     }
 
     .cinema-table .num-col {
         text-align: right;
     }
 
-    /* Sorotan nilai terbaik dengan Amber (#E5A93C) */
-    .best-amber {
-        color: var(--c-amber);
+    /* Sorotan nilai terbaik dengan Antique Gold (#D4AF37) & status Emerald (#10B981) */
+    .best-gold {
+        color: var(--c-gold);
         font-weight: 700;
     }
 
     .status-hit-text {
-        color: var(--c-amber);
+        color: var(--c-emerald);
         font-weight: 700;
     }
 
     .status-flop-text {
-        color: var(--c-silver);
+        color: var(--c-sage);
         font-weight: 500;
     }
 
     .status-incomplete-text {
-        color: var(--c-crimson);
+        color: var(--c-rust);
         font-weight: 600;
     }
 
-    /* Bagian Palet Enam Kolom & Contoh Huruf */
-    .palette-grid {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 0.9rem;
-        margin-top: 0.75rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .swatch-card {
-        background-color: var(--c-charcoal);
-        border: 1px solid var(--border-subtle);
-        border-radius: 6px;
-        overflow: hidden;
-    }
-
-    .swatch-color {
-        height: 64px;
-        width: 100%;
-        border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .swatch-info {
-        padding: 0.7rem 0.75rem;
-    }
-
-    .swatch-name {
-        font-weight: 700;
-        font-size: 0.86rem;
-        color: var(--c-ivory);
-        margin-bottom: 0.1rem;
-    }
-
-    .swatch-hex {
-        font-size: 0.78rem;
-        color: var(--c-amber);
-        font-weight: 600;
-        margin-bottom: 0.3rem;
-        font-variant-numeric: tabular-nums;
-    }
-
-    .swatch-role {
-        font-size: 0.75rem;
-        color: var(--c-silver);
-        line-height: 1.35;
-    }
-
-    .type-specimen-box {
-        background-color: var(--c-charcoal);
-        border: 1px solid var(--border-subtle);
-        border-radius: 6px;
-        padding: 1.25rem 1.4rem;
-    }
-
-    /* Tombol Amber (#E5A93C) & fokus keyboard (Motion 1, R-25, R-32) */
+    /* Tombol Antique Gold (#D4AF37) & fokus keyboard (Motion 1, R-25, R-32) */
     div.stButton > button[kind="primary"] {
-        background-color: var(--c-amber) !important;
-        color: var(--c-obsidian) !important;
-        border: 1px solid var(--c-amber) !important;
+        background-color: var(--c-gold) !important;
+        color: var(--c-pine) !important;
+        border: 1px solid var(--c-gold) !important;
         border-radius: 4px !important;
         font-family: 'DM Sans', sans-serif !important;
         font-weight: 700 !important;
         min-height: 44px !important;
-        padding: 0.55rem 1.3rem !important;
+        padding: 0.55rem 1.35rem !important;
         transition: background-color 0.15s ease !important;
     }
 
     div.stButton > button[kind="primary"]:hover {
-        background-color: #F0B84D !important;
-        color: var(--c-obsidian) !important;
+        background-color: #E2BE47 !important;
+        color: var(--c-pine) !important;
     }
 
     button:focus-visible,
@@ -435,32 +389,32 @@ st.markdown(
     a:focus-visible,
     [role="tab"]:focus-visible,
     [data-baseweb="select"] *:focus-visible {
-        outline: 2px solid var(--c-amber) !important;
+        outline: 2px solid var(--c-gold) !important;
         outline-offset: 2px !important;
     }
 
     .section-intro {
-        color: var(--c-silver);
-        font-size: 0.93rem;
+        color: var(--c-sage);
+        font-size: 0.94rem;
         margin-top: -0.3rem;
-        margin-bottom: 1.1rem;
-        line-height: 1.5;
+        margin-bottom: 1.15rem;
+        line-height: 1.55;
     }
 
     .state-box {
-        background-color: var(--c-charcoal);
-        border: 1px solid var(--border-subtle);
+        background-color: var(--c-forest);
+        border: 1px solid var(--border-forest);
         border-radius: 6px;
         padding: 0.9rem 1.15rem;
-        color: var(--c-silver);
+        color: var(--c-sage);
         font-size: 0.89rem;
         line-height: 1.5;
-        margin-bottom: 0.9rem;
+        margin-bottom: 0.95rem;
     }
 
     .state-box.pending {
-        border-color: var(--c-amber);
-        color: var(--c-ivory);
+        border-color: var(--c-gold);
+        color: var(--c-paper);
     }
 
     @media (max-width: 900px) {
@@ -470,13 +424,10 @@ st.markdown(
         .ticket-stub {
             flex: 0 0 auto;
             border-left: none;
-            border-top: 2px dashed var(--c-obsidian);
+            border-top: 2px dashed var(--c-pine);
             flex-direction: row;
             justify-content: space-between;
             padding: 0.9rem 1.25rem;
-        }
-        .palette-grid {
-            grid-template-columns: repeat(2, 1fr);
         }
         .cinema-table {
             font-size: 0.78rem;
@@ -613,7 +564,7 @@ def latih(_df, genre):
 
 
 def render_tabel_evaluasi_html(df_tabel):
-    """Render tabel perbandingan model selebar halaman di atas latar Charcoal dengan sorotan Amber & label Crimson."""
+    """Render tabel perbandingan model selebar halaman di atas latar Dark Forest (#141A17)."""
     df_ml = df_tabel[~df_tabel["is_baseline"]]
     maks_acc = df_ml["Accuracy"].max()
     maks_prec = df_ml["Precision"].max()
@@ -634,12 +585,12 @@ def render_tabel_evaluasi_html(df_tabel):
         def _sel(nilai, maks, is_base):
             teks = f"{nilai:.3f}"
             if (not is_base) and abs(nilai - maks) < 1e-6:
-                return f'<td class="num-col"><span class="best-amber">{teks} ★</span></td>'
+                return f'<td class="num-col"><span class="best-gold">{teks} ★</span></td>'
             return f'<td class="num-col">{teks}</td>'
 
         tn_teks = html.escape(str(row["Deteksi Film Rugi"]))
         if (not row["is_baseline"]) and row["tn_count"] == maks_tn:
-            sel_tn = f'<td class="num-col"><span class="best-amber">{tn_teks} ★</span></td>'
+            sel_tn = f'<td class="num-col"><span class="best-gold">{tn_teks} ★</span></td>'
         else:
             sel_tn = f'<td class="num-col">{tn_teks}</td>'
 
@@ -655,7 +606,7 @@ def render_tabel_evaluasi_html(df_tabel):
         )
 
     return (
-        '<div class="charcoal-table-section">'
+        '<div class="forest-table-section">'
         '<table class="cinema-table" aria-label="Tabel Perbandingan Model Klasifikasi">'
         "<colgroup>"
         '<col style="width: 30%;">'
@@ -680,7 +631,7 @@ def render_tabel_evaluasi_html(df_tabel):
 
 
 def render_tabel_arsip_html(df_halaman):
-    """Render tabel arsip film selebar halaman di atas latar Charcoal tanpa horizontal scroll."""
+    """Render tabel arsip film selebar halaman di atas latar Dark Forest (#141A17) tanpa horizontal scroll."""
     baris_html = []
     for _, row in df_halaman.iterrows():
         judul = html.escape(str(row["title"]))
@@ -720,7 +671,7 @@ def render_tabel_arsip_html(df_halaman):
         )
 
     return (
-        '<div class="charcoal-table-section">'
+        '<div class="forest-table-section">'
         '<table class="cinema-table" aria-label="Tabel Arsip Film TMDB 5000">'
         "<colgroup>"
         '<col style="width: 22%;">'
@@ -749,32 +700,32 @@ def render_tabel_arsip_html(df_halaman):
 
 
 def gambar_confusion_matrix(model, X_te, y_te, nama_model):
-    """Buat plot Confusion Matrix dengan kontras tinggi sesuai palet enam warna (R-25)."""
+    """Buat plot Confusion Matrix dengan kontras tinggi sesuai palet Noir & Emerald (R-25)."""
     y_pred = model.predict(X_te)
     cm = confusion_matrix(y_te, y_pred)
 
-    cmap_cinema = mcolors.LinearSegmentedColormap.from_list(
-        "cinema_gold", ["#0D0F12", "#7C5B24", "#E5A93C"]
+    cmap_noir = mcolors.LinearSegmentedColormap.from_list(
+        "noir_gold", ["#0B0E0D", "#6E5A1F", "#D4AF37"]
     )
-    fig, ax = plt.subplots(figsize=(4.6, 3.4), facecolor="#161920")
-    ax.set_facecolor("#161920")
-    im = ax.imshow(cm, interpolation="nearest", cmap=cmap_cinema)
+    fig, ax = plt.subplots(figsize=(4.6, 3.4), facecolor="#141A17")
+    ax.set_facecolor("#141A17")
+    im = ax.imshow(cm, interpolation="nearest", cmap=cmap_noir)
 
     labels = ["Rugi (Flop)", "Untung (Hit)"]
-    ax.set_xticks([0, 1], labels=labels, color="#F4F1EA", fontsize=9.5)
-    ax.set_yticks([0, 1], labels=labels, color="#F4F1EA", fontsize=9.5)
-    ax.set_xlabel("Prediksi Model", color="#A39E93", fontsize=9, labelpad=8)
-    ax.set_ylabel("Kenyataan Box Office", color="#A39E93", fontsize=9, labelpad=8)
+    ax.set_xticks([0, 1], labels=labels, color="#F2EFE9", fontsize=9.5)
+    ax.set_yticks([0, 1], labels=labels, color="#F2EFE9", fontsize=9.5)
+    ax.set_xlabel("Prediksi Model", color="#8F9E96", fontsize=9, labelpad=8)
+    ax.set_ylabel("Kenyataan Box Office", color="#8F9E96", fontsize=9, labelpad=8)
     ax.set_title(
         f"Matriks Evaluasi: {nama_model}",
-        color="#F4F1EA",
+        color="#F2EFE9",
         fontsize=10.5,
         fontweight="bold",
         pad=10,
     )
 
     for spine in ax.spines.values():
-        spine.set_edgecolor("#242936")
+        spine.set_edgecolor("#222C27")
 
     batas = (cm.max() + cm.min()) / 2.0
     total = cm.sum()
@@ -782,7 +733,7 @@ def gambar_confusion_matrix(model, X_te, y_te, nama_model):
         for j in range(2):
             nilai = cm[i, j]
             persen = (nilai / total) * 100 if total > 0 else 0.0
-            warna_teks = "#0D0F12" if nilai > batas else "#F4F1EA"
+            warna_teks = "#0B0E0D" if nilai > batas else "#F2EFE9"
             ax.text(
                 j,
                 i,
@@ -795,8 +746,8 @@ def gambar_confusion_matrix(model, X_te, y_te, nama_model):
             )
 
     cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-    cbar.ax.yaxis.set_tick_params(color="#A39E93", labelcolor="#A39E93", labelsize=8)
-    cbar.outline.set_edgecolor("#242936")
+    cbar.ax.yaxis.set_tick_params(color="#8F9E96", labelcolor="#8F9E96", labelsize=8)
+    cbar.outline.set_edgecolor("#222C27")
     fig.tight_layout()
     return fig
 
@@ -804,15 +755,20 @@ def gambar_confusion_matrix(model, X_te, y_te, nama_model):
 def gambar_batang_horizontal(
     series_data, warna_batang, format_nilai="{:.0f}", tinggi=3.2
 ):
-    """Buat grafik batang horizontal terurut dari nilai terbesar di atas."""
+    """Buat grafik batang horizontal terurut dari nilai terbesar di atas di atas kanvas Dark Forest."""
     s = series_data.sort_values(ascending=True)
-    fig, ax = plt.subplots(figsize=(5.2, tinggi), facecolor="#161920")
-    ax.set_facecolor("#161920")
+    fig, ax = plt.subplots(figsize=(5.2, tinggi), facecolor="#141A17")
+    ax.set_facecolor("#141A17")
 
-    bars = ax.barh(s.index, s.values, color=warna_batang, height=0.6)
-    ax.tick_params(axis="y", colors="#F4F1EA", labelsize=9)
-    ax.tick_params(axis="x", colors="#A39E93", labelsize=8.5)
-    ax.xaxis.grid(True, linestyle="--", alpha=0.22, color="#A39E93")
+    if isinstance(warna_batang, dict):
+        warna_list = [warna_batang.get(k, "#D4AF37") for k in s.index]
+    else:
+        warna_list = warna_batang
+
+    bars = ax.barh(s.index, s.values, color=warna_list, height=0.6)
+    ax.tick_params(axis="y", colors="#F2EFE9", labelsize=9)
+    ax.tick_params(axis="x", colors="#8F9E96", labelsize=8.5)
+    ax.xaxis.grid(True, linestyle="--", alpha=0.22, color="#8F9E96")
     ax.set_axisbelow(True)
 
     maks = float(s.max()) if len(s) > 0 else 1.0
@@ -821,7 +777,7 @@ def gambar_batang_horizontal(
     for spine in ["top", "right"]:
         ax.spines[spine].set_visible(False)
     for spine in ["bottom", "left"]:
-        ax.spines[spine].set_edgecolor("#242936")
+        ax.spines[spine].set_edgecolor("#222C27")
 
     for bar in bars:
         lebar = bar.get_width()
@@ -831,7 +787,7 @@ def gambar_batang_horizontal(
             format_nilai.format(lebar),
             va="center",
             ha="left",
-            color="#F4F1EA",
+            color="#F2EFE9",
             fontsize=8.5,
             fontweight="bold",
         )
@@ -840,20 +796,19 @@ def gambar_batang_horizontal(
     return fig
 
 
-# ---------- Tajuk Utama (Playfair Display 88px & Tautan Bergaris Bawah Crimson) ----------
+# ---------- Tajuk Utama (Playfair Display 88px & Tautan Bergaris Bawah Rust Orange) ----------
 st.markdown(
     """
     <header class="hero-header">
         <h1 class="hero-display-title">Proyeksi Box Office.</h1>
         <p class="hero-lead">
-            Evaluasi peluang balik modal produksi film (pendapatan melampaui anggaran) berdasarkan arsip
+            Analisis kelayakan komersial produksi film (pendapatan melampaui anggaran) berdasarkan arsip historis
             TMDB 5000 menggunakan Logistic Regression, Decision Tree, dan Random Forest.
         </p>
         <nav class="section-nav" aria-label="Navigasi Bagian Halaman">
             <a class="section-link" href="#studio-proyeksi">Studio Proyeksi &amp; Tiket</a>
-            <a class="section-link" href="#evaluasi-model">Tabel Evaluasi Model</a>
-            <a class="section-link" href="#arsip-tmdb">Tabel Arsip TMDB 5000</a>
-            <a class="section-link" href="#spesifikasi-desain">Palet &amp; Tipografi</a>
+            <a class="section-link" href="#evaluasi-model">Evaluasi Model Klasifikasi</a>
+            <a class="section-link" href="#arsip-tmdb">Arsip Film TMDB 5000</a>
         </nav>
     </header>
     """,
@@ -887,7 +842,9 @@ except Exception as exc:
     )
     st.stop()
 
-terbaik_acc = tabel[~tabel["is_baseline"]].sort_values("Accuracy", ascending=False).iloc[0]
+terbaik_acc = (
+    tabel[~tabel["is_baseline"]].sort_values("Accuracy", ascending=False).iloc[0]
+)
 tahun_min_data = int(df["tahun"].min())
 tahun_maks_data = int(df["tahun"].max())
 
@@ -898,22 +855,22 @@ st.markdown(
         <div class="strip-item">
             <div class="strip-label">Arsip Bersih Terverifikasi</div>
             <div class="strip-val">{len(df):,} Film</div>
-            <div class="strip-sub">Dari {len(df_mentah):,} baris CSV ({tahun_min_data}-{tahun_maks_data})</div>
+            <div class="strip-sub">Dari {len(df_mentah):,} total baris CSV ({tahun_min_data}-{tahun_maks_data})</div>
         </div>
         <div class="strip-item">
-            <div class="strip-label">Proporsi Balik Modal (Hit)</div>
-            <div class="strip-val">{df['sukses'].mean() * 100:.1f}%</div>
+            <div class="strip-label">Tingkat Balik Modal Historis</div>
+            <div class="strip-val emerald">{df['sukses'].mean() * 100:.1f}%</div>
             <div class="strip-sub">{int(df['sukses'].sum()):,} Hit vs {int((df['sukses'] == 0).sum()):,} Flop</div>
         </div>
         <div class="strip-item">
             <div class="strip-label">Akurasi Model Tertinggi</div>
-            <div class="strip-val amber">{terbaik_acc['Model']}</div>
+            <div class="strip-val gold">{terbaik_acc['Model']}</div>
             <div class="strip-sub">Accuracy {terbaik_acc['Accuracy'] * 100:.1f}% | F1 {terbaik_acc['F1']:.3f}</div>
         </div>
         <div class="strip-item">
-            <div class="strip-label">Skema Pengujian</div>
-            <div class="strip-val">Split 80 / 20</div>
-            <div class="strip-sub">{len(X_te):,} film uji terstratifikasi</div>
+            <div class="strip-label">Sampel Pengujian</div>
+            <div class="strip-val">{len(X_te):,} Film</div>
+            <div class="strip-sub">20% data uji terstratifikasi</div>
         </div>
     </div>
     """,
@@ -921,13 +878,13 @@ st.markdown(
 )
 
 # ==============================================================================
-# BAGIAN 1: Dua Kolom Asimetris (Studio Proyeksi & Tiket Krem Ber-Stub Crimson)
+# BAGIAN 1: Studio Proyeksi & Tiket Bioskop (Warm Paper + Stub Rust Orange)
 # ==============================================================================
 st.markdown('<div id="studio-proyeksi"></div>', unsafe_allow_html=True)
 st.subheader("Studio Proyeksi Box Office")
 st.markdown(
     '<p class="section-intro">'
-    "Bagian utama dua kolom asimetris: atur parameter produksi di sebelah kiri, lalu cetak proyeksi pada kartu tiket krem ber-stub Crimson di sebelah kanan."
+    "Simulasikan rencana anggaran, durasi tayang, tahun rilis, dan kombinasi genre untuk menguji peluang balik modal produksi film Anda."
     "</p>",
     unsafe_allow_html=True,
 )
@@ -1039,6 +996,7 @@ with kol_tiket:
         "BOX OFFICE HIT (UNTUNG)" if is_hit else "BOX OFFICE FLOP (RUGI)"
     )
     tag_stub = "PROYEKSI HIT" if is_hit else "PROYEKSI FLOP"
+    kelas_tag_stub = "stub-verdict-tag hit" if is_hit else "stub-verdict-tag"
     label_genre = (
         html.escape(", ".join(hasil["genre"]))
         if hasil["genre"]
@@ -1083,7 +1041,7 @@ with kol_tiket:
             <div class="ticket-stub">
                 <div class="stub-label">Peluang Untung<br>({nama_model_aman})</div>
                 <div class="stub-prob">{peluang_utama * 100:.1f}%</div>
-                <div class="stub-verdict-tag">{tag_stub}</div>
+                <div class="{kelas_tag_stub}">{tag_stub}</div>
             </div>
         </div>
         """,
@@ -1093,13 +1051,13 @@ with kol_tiket:
 st.divider()
 
 # ==============================================================================
-# BAGIAN 2: Tabel Perbandingan Model Selebar Halaman di Atas Latar Charcoal
+# BAGIAN 2: Evaluasi & Perbandingan Model Klasifikasi
 # ==============================================================================
 st.markdown('<div id="evaluasi-model"></div>', unsafe_allow_html=True)
 st.subheader("Evaluasi & Perbandingan Model Klasifikasi")
 st.markdown(
     '<p class="section-intro">'
-    "Tabel selebar halaman di atas latar Charcoal (#161920). Nilai terbaik di antara model Machine Learning disorot dengan warna Amber (#E5A93C), sedangkan baris acuan ditandai label PEMBANDING berwarna Crimson (#C83E3B)."
+    "Perbandingan kinerja Logistic Regression, Decision Tree, dan Random Forest terhadap acuan tebakan mayoritas pada 646 film data uji (488 Hit dan 158 Flop)."
     "</p>",
     unsafe_allow_html=True,
 )
@@ -1147,7 +1105,7 @@ with diag_kanan:
         for idx in penting.index
     ]
     fig_imp = gambar_batang_horizontal(
-        penting, warna_batang="#E5A93C", format_nilai="{:.3f}", tinggi=3.4
+        penting, warna_batang="#D4AF37", format_nilai="{:.3f}", tinggi=3.4
     )
     st.pyplot(fig_imp, width="stretch")
     plt.close(fig_imp)
@@ -1155,13 +1113,13 @@ with diag_kanan:
 st.divider()
 
 # ==============================================================================
-# BAGIAN 3: Eksplorasi & Tabel Arsip TMDB 5000 Selebar Halaman (Tanpa Geser Kiri-Kanan)
+# BAGIAN 3: Eksplorasi & Tabel Arsip TMDB 5000 Selebar Halaman
 # ==============================================================================
 st.markdown('<div id="arsip-tmdb"></div>', unsafe_allow_html=True)
 st.subheader("Eksplorasi Arsip TMDB 5000")
 st.markdown(
     '<p class="section-intro">'
-    "Distribusi historis dan tabel arsip selebar halaman di atas latar Charcoal (#161920). Seluruh kolom dirancang proporsional tanpa perlu digeser ke kiri atau kanan."
+    "Proporsi keberhasilan komersial lintas genre serta direktori lengkap film dari arsip TMDB 5000."
     "</p>",
     unsafe_allow_html=True,
 )
@@ -1175,7 +1133,7 @@ with eda_kiri:
     )
     fig_status = gambar_batang_horizontal(
         hitung_status,
-        warna_batang="#E5A93C",
+        warna_batang={"Untung (Hit)": "#10B981", "Rugi (Flop)": "#C2410C"},
         format_nilai="{:,.0f} film",
         tinggi=2.2,
     )
@@ -1188,14 +1146,14 @@ with eda_kanan:
     per_genre.index = genre
     fig_genre = gambar_batang_horizontal(
         per_genre.sort_values(ascending=False).head(10),
-        warna_batang="#A39E93",
+        warna_batang="#8F9E96",
         format_nilai="{:,.0f}",
         tinggi=2.8,
     )
     st.pyplot(fig_genre, width="stretch")
     plt.close(fig_genre)
 
-st.markdown("#### Telusuri Tabel Arsip Film Selebar Halaman")
+st.markdown("#### Direktori Film Arsip TMDB")
 
 mode_arsip = st.radio(
     "Cakupan Data Arsip",
@@ -1268,7 +1226,7 @@ else:
     total_baris = len(df_tampil)
     total_halaman = max(1, math.ceil(total_baris / baris_per_hal))
 
-    nav_kiri, nav_kanan = st.columns([0.7, 0.3])
+    nav_kiri, nav_kanan = st.columns([0.72, 0.28])
     with nav_kanan:
         halaman_aktif = st.number_input(
             f"Halaman (dari {total_halaman})",
@@ -1282,110 +1240,8 @@ else:
     with nav_kiri:
         st.caption(
             f"Menampilkan baris {idx_awal + 1:,} sampai {idx_akhir:,} dari total {total_baris:,} film yang cocok "
-            f"(Cakupan: {len(df_sumber):,} film). Angka dolar diringkas (Jt = Juta USD, M = Miliar USD) agar seluruh kolom muat utuh tanpa geser kiri-kanan."
+            f"(Cakupan: {len(df_sumber):,} film | Jt = Juta USD, M = Miliar USD)."
         )
 
     potongan_df = df_tampil.iloc[idx_awal:idx_akhir]
     st.markdown(render_tabel_arsip_html(potongan_df), unsafe_allow_html=True)
-
-st.divider()
-
-# ==============================================================================
-# BAGIAN 4: Palet Enam Kolom & Contoh Huruf (Playfair Display + DM Sans)
-# ==============================================================================
-st.markdown('<div id="spesifikasi-desain"></div>', unsafe_allow_html=True)
-st.subheader("Sistem Desain Sinema: Palet Enam Kolom & Tipografi")
-st.markdown(
-    '<p class="section-intro">'
-    "Referensi palet enam warna sesuai kode hex dan pasangan huruf yang diterapkan di seluruh halaman (Energy 2 / Rhythm 2 / Motion 1)."
-    "</p>",
-    unsafe_allow_html=True,
-)
-
-st.markdown(
-    """
-    <div class="palette-grid" role="region" aria-label="Palet Enam Warna Sinema">
-        <div class="swatch-card">
-            <div class="swatch-color" style="background-color: #0D0F12;"></div>
-            <div class="swatch-info">
-                <div class="swatch-name">Obsidian</div>
-                <div class="swatch-hex">#0D0F12</div>
-                <div class="swatch-role">Latar utama ruang pemutaran dan teks di atas tiket krem.</div>
-            </div>
-        </div>
-        <div class="swatch-card">
-            <div class="swatch-color" style="background-color: #161920;"></div>
-            <div class="swatch-info">
-                <div class="swatch-name">Charcoal</div>
-                <div class="swatch-hex">#161920</div>
-                <div class="swatch-role">Permukaan bagian tabel selebar halaman dan kanvas grafik.</div>
-            </div>
-        </div>
-        <div class="swatch-card">
-            <div class="swatch-color" style="background-color: #F4F1EA;"></div>
-            <div class="swatch-info">
-                <div class="swatch-name">Ivory</div>
-                <div class="swatch-hex">#F4F1EA</div>
-                <div class="swatch-role">Teks utama halaman dan latar kartu tiket hasil prediksi.</div>
-            </div>
-        </div>
-        <div class="swatch-card">
-            <div class="swatch-color" style="background-color: #A39E93;"></div>
-            <div class="swatch-info">
-                <div class="swatch-name">Silver</div>
-                <div class="swatch-hex">#A39E93</div>
-                <div class="swatch-role">Teks pendukung, keterangan tabel, dan label sumbu.</div>
-            </div>
-        </div>
-        <div class="swatch-card">
-            <div class="swatch-color" style="background-color: #E5A93C;"></div>
-            <div class="swatch-info">
-                <div class="swatch-name">Amber</div>
-                <div class="swatch-hex">#E5A93C</div>
-                <div class="swatch-role">Tombol aksi utama dan sorotan nilai terbaik pada tabel.</div>
-            </div>
-        </div>
-        <div class="swatch-card">
-            <div class="swatch-color" style="background-color: #C83E3B;"></div>
-            <div class="swatch-info">
-                <div class="swatch-name">Crimson</div>
-                <div class="swatch-hex">#C83E3B</div>
-                <div class="swatch-role">Stub tiket prediksi, label "PEMBANDING", dan garis bawah tautan.</div>
-            </div>
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
-
-typo_kiri, typo_kanan = st.columns(2, gap="large")
-with typo_kiri:
-    st.markdown(
-        """
-        <div class="type-specimen-box">
-            <div class="strip-label">Huruf Judul Utama (88 px pada Tajuk Utama)</div>
-            <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 2.3rem; font-weight: 700; color: #F4F1EA; line-height: 1.1; margin: 0.35rem 0;">
-                Playfair Display
-            </div>
-            <div style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1.05rem; color: #A39E93;">
-                Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz &bull; 0123456789
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-with typo_kanan:
-    st.markdown(
-        """
-        <div class="type-specimen-box">
-            <div class="strip-label">Huruf Tabel, Kontrol &amp; Data Angka Tabular</div>
-            <div style="font-family: 'DM Sans', sans-serif; font-size: 2.1rem; font-weight: 700; color: #F4F1EA; line-height: 1.15; margin: 0.35rem 0;">
-                DM Sans
-            </div>
-            <div style="font-family: 'DM Sans', sans-serif; font-size: 0.98rem; color: #A39E93; font-variant-numeric: tabular-nums;">
-                Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn &bull; Angka Tabular: $237.0 Jt | 75.7% | F1 0.861
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
